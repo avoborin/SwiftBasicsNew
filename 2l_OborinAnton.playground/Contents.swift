@@ -95,3 +95,35 @@ func fibonaci(_ count: Int) -> [Double] {
 }
 
 print(fibonaci(100))
+
+// Задание 6
+
+func isMultiple(_ num: Int, of divider: Int) -> Bool {
+    return num % divider == 0
+}
+
+var integers: [Int] = []
+
+while integers.count != 50 {
+    integers.append(integers.count + 2)
+}
+
+var p = 2
+var index = 0
+
+while index < integers.count - 1 {
+    p = integers[index]
+    
+    for num in integers {
+        print("0 num: \(num)")
+        print("1 p: \(p)")
+        
+        if (num != p) && isMultiple(num, of: p){
+            integers.remove(at: integers.firstIndex(of: num)!)
+            print("3 array integers: \(integers)")
+        }
+    }
+    index += 1
+}
+
+print(integers)
